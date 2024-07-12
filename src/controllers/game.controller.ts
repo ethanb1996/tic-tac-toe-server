@@ -28,6 +28,14 @@ const makeMove = (req: Request, res: Response): void => {
 };
 
 const resetGame = (req: Request, res: Response): void => {
+  // TODO - define an initial state and current state
+  gameState = [
+    ['', '', ''],
+    ['', '', ''],
+    ['', '', '']
+  ];
+  io.emit('initGame', gameState);
+  res.json(gameState);
 };
 
 export { initGame, makeMove, resetGame };
